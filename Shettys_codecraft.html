@@ -1,0 +1,235 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karthik K Shetty | Full-Stack Developer</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 30% 20%, #3b0764, transparent 40%),
+                  radial-gradient(circle at 70% 80%, #1e40af, transparent 40%),
+                  #000;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background watermark logo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: auto;
+      background: url('https://img.sanishtech.com/u/5de4601d6cbf4b62e0966741eaa30300.jpeg') center/contain no-repeat;
+      opacity: 0.05;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="text-white relative">
+
+<!-- ================= NAV / HEADER ================= -->
+<header class="flex flex-col md:flex-row justify-between items-center px-8 md:px-24 py-6 relative z-10 gap-4 md:gap-0">
+  
+  <!-- Logo + Brand -->
+  <div class="flex items-center gap-4">
+    <img 
+      src="https://img.sanishtech.com/u/5de4601d6cbf4b62e0966741eaa30300.jpeg"
+      alt="Shetty's Codecraft Logo"
+      class="w-12 h-12 md:w-14 md:h-14 object-contain rounded-lg bg-white/5 p-1"
+      loading="lazy"
+    />
+
+    <h1 
+      class="font-extrabold tracking-wide text-xl md:text-2xl"
+      style="background: linear-gradient(to right, #ff0000, #ff7700, #ffff00, #008000, #0000ff, #4b0082, #8f00ff);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             color: transparent;">
+      SHETTY'S CODECRAFT
+    </h1>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="hidden md:flex gap-8 text-sm text-gray-400">
+    <a href="#projects" class="hover:text-white transition">Projects</a>
+    <a href="#contact" class="hover:text-white transition">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="min-h-[80vh] flex flex-col md:flex-row items-center px-8 md:px-24 py-12 md:py-24 relative z-10 gap-12">
+  <div class="max-w-1xl">
+
+    <div class="flex items-center gap-4 mb-6">
+      <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix"
+           class="w-14 h-14 rounded-full bg-gray-800 p-1">
+      <span class="text-gray-400">Hey, I’m</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+      Karthik K Shetty ✨<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+        Full-Stack React Developer
+      </span>
+    </h1>
+
+    <p class="text-gray-400 max-w-xl mb-8 text-sm sm:text-base">
+      A Full-Stack developer and Content Strategist with 3 years of experience,
+      building scalable applications and growth-focused digital experiences
+      at the intersection of engineering and strategy.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=freshkickscoding@gmail.com&su=Freelance%20Project%20Inquiry&body=Hi%20Karthik,%0A%0AI’d%20like%20to%20discuss%20a%20freelance%20project."
+         class="px-6 py-3 rounded-lg bg-white text-black font-medium hover:opacity-90 transition text-center">
+        Hire Me as a Freelance
+      </a>
+      <a href="https://calendar.app.google/9QyUAj8ZQXbmYdvUA"
+         target="_blank"
+         class="px-6 py-3 rounded-lg border border-gray-600 hover:border-white transition text-center">
+        Book a 15-min call
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="px-8 md:px-24 py-24 relative z-10">
+  <h2 class="text-2xl sm:text-3xl font-semibold mb-12">Building Digital Experiences</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+      <h3 class="font-semibold mb-3">What I Can Do</h3>
+      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
+        <li>• Full-Stack Web Development</li>
+        <li>• React & Next.js Applications</li>
+        <li>• API & Backend Systems</li>
+        <li>• Conversion-Focused UI</li>
+      </ul>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+      <h3 class="font-semibold mb-3">Tools I Use</h3>
+      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
+        <li><b>Frontend:</b> React, Next.js, Tailwind</li>
+        <li><b>Backend:</b> Node, Express</li>
+        <li><b>DB:</b> MongoDB, PostgreSQL</li>
+        <li><b>Deploy:</b> Vercel, Docker</li>
+      </ul>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
+      <h3 class="font-semibold mb-3">Strategy & UX</h3>
+      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
+        <li>User-Centered Design</li>
+        <li>SEO & Content Architecture</li>
+        <li>Modern Clean UI</li>
+        <li>Performance Optimization</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="px-8 md:px-24 py-24 relative z-10">
+  <h2 class="text-2xl sm:text-3xl font-semibold mb-12">Featured Projects</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Virtual Trial Room</h3>
+      <p class="text-gray-400 text-sm sm:text-base mb-4">
+        An immersive virtual trial room experience allowing users to preview outfits in real-time.
+      </p>
+      <p class="text-sm text-gray-500">
+        <b>Tools:</b> React, Tailwind CSS, Node.js
+      </p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Banyan Tree Organics</h3>
+      <p class="text-gray-400 text-sm sm:text-base mb-4">
+        A full-featured e-commerce website for an organic brand with clean design and performance optimization.
+      </p>
+      <p class="text-sm text-gray-500">
+        <b>Tools:</b> Next.js, Tailwind CSS, MongoDB, Stripe
+      </p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Freelance E-commerce Suite</h3>
+      <p class="text-gray-400 text-sm sm:text-base mb-4">
+        Custom-built shopping solutions optimized for conversion, performance, and growth.
+      </p>
+      <p class="text-sm text-gray-500">
+        <b>Tools:</b> Next.js, Tailwind CSS, MongoDB, Stripe
+      </p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Asset Management System</h3>
+      <p class="text-gray-400 text-sm sm:text-base mb-4">
+        Custom-built process to track, monitor, maintain, and optimize the lifecycle of organizational assets.
+      </p>
+      <p class="text-sm text-gray-500">
+        <b>Tools:</b> Next.js, Tailwind CSS, RESTful APIs, Supabase (PostgreSQL)
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="contact" class="px-8 md:px-24 py-24 relative z-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur">
+
+    <div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+        Bringing your ideas to life.
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-base">
+        Have a project in mind or want to connect? Let’s turn your vision into reality.
+      </p>
+    </div>
+
+    <!-- HTML-only Formspree form -->
+    <form action="https://formspree.io/f/xojnazrk" method="POST" class="space-y-4" autocomplete="off">
+      <input type="text" name="name" placeholder="Name" required
+             class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off">
+
+      <input type="email" name="email" placeholder="Email" required
+             class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off">
+
+      <textarea name="message" placeholder="Message" required
+                class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off"></textarea>
+
+      <button type="submit"
+              class="w-full sm:w-auto px-6 py-3 bg-white text-black rounded-lg font-medium hover:opacity-90 transition">
+        Send
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="px-8 md:px-24 py-10 text-gray-500 text-sm flex flex-col md:flex-row justify-between gap-4 relative z-10">
+  <p>© 2026 Karthik K Shetty • Based in India (Remote)</p>
+  <p>Built with React, Next.js & Tailwind CSS</p>
+</footer>
+
+</body>
+</html>

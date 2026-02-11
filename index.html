@@ -1,235 +1,281 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karthik K Shetty | Full-Stack Developer</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 30% 20%, #3b0764, transparent 40%),
-                  radial-gradient(circle at 70% 80%, #1e40af, transparent 40%),
-                  #000;
-      position: relative;
+      background: #0f0f0f;
       overflow-x: hidden;
+      color: #f0f0f0;
     }
 
-    /* Background watermark logo */
+    /* Scroll progress */
+    #scroll-progress {
+      height: 3px;
+      width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      background: linear-gradient(to right, #FF6B6B, #FFD93D);
+    }
+
+    /* Header fixed */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: rgba(15, 15, 15, 0.7);
+    }
+
+    /* Background logo */
     body::before {
       content: "";
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50vw;
-      height: auto;
-      background: url('https://img.sanishtech.com/u/5de4601d6cbf4b62e0966741eaa30300.jpeg') center/contain no-repeat;
-      opacity: 0.05;
-      z-index: 0;
+      inset: 0;
+      background: url('https://img.sanishtech.com/u/5de4601d6cbf4b62e0966741eaa30300.jpeg') center / contain no-repeat;
+      opacity: 0.08;
       pointer-events: none;
+      z-index: 0;
     }
+
+    /* Cards */
+    .card {
+      transition: transform .35s ease, box-shadow .35s ease;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 80px rgba(255,107,107,0.25);
+    }
+
+    /* Hide scrollbar */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Text gradient */
+    .gradient-primary { background: linear-gradient(90deg, #FF6B6B, #FFD93D); -webkit-background-clip: text; color: transparent; }
+    .gradient-secondary { background: linear-gradient(90deg, #4ECDC4, #556270); -webkit-background-clip: text; color: transparent; }
   </style>
 </head>
 
-<body class="text-white relative">
+<body class="relative">
 
-<!-- ================= NAV / HEADER ================= -->
-<header class="flex flex-col md:flex-row justify-between items-center px-8 md:px-24 py-6 relative z-10 gap-4 md:gap-0">
-  
-  <!-- Logo + Brand -->
+<div id="scroll-progress"></div>
+
+<!-- ================= NAV ================= -->
+<header class="flex justify-between items-center px-8 md:px-24 py-6">
   <div class="flex items-center gap-4">
-    <img 
-      src="Logo_Shetty's.jpeg"
-      alt="Shetty's Codecraft Logo"
-      class="w-12 h-12 md:w-14 md:h-14 object-contain rounded-lg bg-white/5 p-1"
-      loading="lazy"
-    />
-
-    <h1 
-      class="font-extrabold tracking-wide text-xl md:text-2xl"
-      style="background: linear-gradient(to right, #ff0000, #ff7700, #ffff00, #008000, #0000ff, #4b0082, #8f00ff);
-             -webkit-background-clip: text;
-             -webkit-text-fill-color: transparent;
-             background-clip: text;
-             color: transparent;">
-      SHETTY'S CODECRAFT
+    <img src="https://img.sanishtech.com/u/5de4601d6cbf4b62e0966741eaa30300.jpeg"
+         class="w-12 h-12 rounded-lg bg-white/5 p-1">
+    <h1 class="font-extrabold text-xl md:text-2xl gradient-primary">
+      SHETTY’S CODECRAFT
     </h1>
   </div>
-
-  <!-- Navigation -->
-  <nav class="hidden md:flex gap-8 text-sm text-gray-400">
-    <a href="#projects" class="hover:text-white transition">Projects</a>
-    <a href="#contact" class="hover:text-white transition">Contact</a>
+  <nav class="hidden md:flex gap-8 text-gray-400 text-sm">
+    <a href="#work" class="hover:text-white">Work</a>
+    <a href="#services" class="hover:text-white">Services</a>
+    <a href="#contact" class="hover:text-white">Contact</a>
   </nav>
 </header>
 
 <!-- ================= HERO ================= -->
-<section class="min-h-[80vh] flex flex-col md:flex-row items-center px-8 md:px-24 py-12 md:py-24 relative z-10 gap-12">
-  <div class="max-w-1xl">
-
-    <div class="flex items-center gap-4 mb-6">
-      <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix"
-           class="w-14 h-14 rounded-full bg-gray-800 p-1">
-      <span class="text-gray-400">Hey, I’m</span>
-    </div>
-
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+<section class="min-h-[90vh] flex items-center px-8 md:px-24 relative z-10 hero pt-24">
+  <div>
+    <p class="text-gray-400 mb-4">Hey, I’m</p>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
       Karthik K Shetty ✨<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-        Full-Stack React Developer
-      </span>
+      <span class="gradient-primary">Full-Stack React Developer</span>
     </h1>
-
-    <p class="text-gray-400 max-w-xl mb-8 text-sm sm:text-base">
-      A Full-Stack developer and Content Strategist with 3 years of experience,
-      building scalable applications and growth-focused digital experiences
-      at the intersection of engineering and strategy.
+    <p class="text-gray-400 max-w-xl mb-10">
+      I help startups and brands build fast, scalable products that convert users into revenue.
     </p>
-
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=freshkickscoding@gmail.com&su=Freelance%20Project%20Inquiry&body=Hi%20Karthik,%0A%0AI’d%20like%20to%20discuss%20a%20freelance%20project."
-         class="px-6 py-3 rounded-lg bg-white text-black font-medium hover:opacity-90 transition text-center">
+    <div class="flex gap-4">
+      <a href="#contact" class="card px-6 py-3 border border-green-600 rounded-lg">
         Hire Me as a Freelance
       </a>
-      <a href="https://calendar.app.google/9QyUAj8ZQXbmYdvUA"
-         target="_blank"
-         class="px-6 py-3 rounded-lg border border-gray-600 hover:border-white transition text-center">
-        Book a 15-min call
+      <a href="https://calendar.app.google/9QyUAj8ZQXbmYdvUA" target="_blank"
+         class="card px-6 py-3 border border-gray-600 rounded-lg">
+        Book a Call
       </a>
     </div>
+    <p class="mt-6 text-sm text-green-400">● Available for new projects</p>
+  </div>
+</section>
 
+<!-- ================= STICKY STORY ================= -->
+<section class="px-8 md:px-24 py-32 relative z-10">
+  <div class="grid md:grid-cols-2 gap-20">
+    <div class="md:sticky md:top-32">
+      <h2 class="text-4xl font-bold mb-6">
+        I don’t build pages.<br>
+        I build <span class="gradient-primary">revenue systems.</span>
+      </h2>
+      <p class="text-gray-400 max-w-md">Scroll to understand my approach.</p>
+    </div>
+    <div class="space-y-24">
+      <div class="card p-8 rounded-xl">⚡ Speed-first engineering</div>
+      <div class="card p-8 rounded-xl">🎯 Conversion-driven UX</div>
+      <div class="card p-8 rounded-xl">🧠 Scalable architecture</div>
+    </div>
   </div>
 </section>
 
 <!-- ================= SERVICES ================= -->
-<section class="px-8 md:px-24 py-24 relative z-10">
-  <h2 class="text-2xl sm:text-3xl font-semibold mb-12">Building Digital Experiences</h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
-      <h3 class="font-semibold mb-3">What I Can Do</h3>
-      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
-        <li>• Full-Stack Web Development</li>
-        <li>• React & Next.js Applications</li>
-        <li>• API & Backend Systems</li>
-        <li>• Conversion-Focused UI</li>
-      </ul>
+<section id="services" class="px-8 md:px-24 py-32 relative z-10">
+  <h2 class="text-3xl font-bold mb-12 gradient-primary">Services</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">🚀 Full-Stack Development</h3>
+      <p class="text-gray-400">Production-ready apps with React, Next.js & Node.</p>
     </div>
-
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
-      <h3 class="font-semibold mb-3">Tools I Use</h3>
-      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
-        <li><b>Frontend:</b> React, Next.js, Tailwind</li>
-        <li><b>Backend:</b> Node, Express</li>
-        <li><b>DB:</b> MongoDB, PostgreSQL</li>
-        <li><b>Deploy:</b> Vercel, Docker</li>
-      </ul>
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">🧩UI / UX Engineering</h3>
+      <p class="text-gray-400">Interfaces designed to guide user behavior.</p>
     </div>
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">🧠 Startup MVPs</h3>
+      <p class="text-gray-400">Launch fast, validate early, scale clean.</p>
+    </div>
+  </div><br>
 
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur">
-      <h3 class="font-semibold mb-3">Strategy & UX</h3>
-      <ul class="text-gray-400 space-y-2 text-sm sm:text-base">
-        <li>User-Centered Design</li>
-        <li>SEO & Content Architecture</li>
-        <li>Modern Clean UI</li>
-        <li>Performance Optimization</li>
-      </ul>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">🤖 AI & Automation Integration</h3>
+      <p class="text-gray-400">AI features, workflows, and automations that reduce manual work.</p>
+    </div>
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">🧱 Backend & API Engineering</h3>
+      <p class="text-gray-400">Scalable APIs, databases, and integrations built for growth.</p>
+    </div>
+    <div class="card p-8 rounded-xl">
+      <h3 class="font-semibold mb-2 gradient-secondary">⚡ Performance Optimization</h3>
+      <p class="text-gray-400">Lighthouse, Core Web Vitals, caching, and load-time optimization.</p>
     </div>
   </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="px-8 md:px-24 py-24 relative z-10">
-  <h2 class="text-2xl sm:text-3xl font-semibold mb-12">Featured Projects</h2>
+<section id="work" class="py-32 relative z-10 overflow-hidden">
+  <h2 class="text-3xl font-bold px-8 md:px-24 mb-12 gradient-primary">Selected Work →</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Virtual Trial Room</h3>
-      <p class="text-gray-400 text-sm sm:text-base mb-4">
-        An immersive virtual trial room experience allowing users to preview outfits in real-time.
-      </p>
-      <p class="text-sm text-gray-500">
-        <b>Tools:</b> React, Tailwind CSS, Node.js
-      </p>
-    </div>
+  <div class="relative px-8 md:px-24 overflow-hidden">
+    <div class="flex gap-8 whitespace-nowrap" id="projects-container">
 
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Banyan Tree Organics</h3>
-      <p class="text-gray-400 text-sm sm:text-base mb-4">
-        A full-featured e-commerce website for an organic brand with clean design and performance optimization.
-      </p>
-      <p class="text-sm text-gray-500">
-        <b>Tools:</b> Next.js, Tailwind CSS, MongoDB, Stripe
-      </p>
-    </div>
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Virtual Trial Room</h3>
+        <p class="text-gray-400">AR try-on platform for e-commerce fashion brands.</p>
+      </div>
 
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Freelance E-commerce Suite</h3>
-      <p class="text-gray-400 text-sm sm:text-base mb-4">
-        Custom-built shopping solutions optimized for conversion, performance, and growth.
-      </p>
-      <p class="text-sm text-gray-500">
-        <b>Tools:</b> Next.js, Tailwind CSS, MongoDB, Stripe
-      </p>
-    </div>
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Banyan Tree Organics</h3>
+        <p class="text-gray-400">Online marketplace for sustainable products with smooth UX.</p>
+      </div>
 
-    <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur hover:border-white/20 transition">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-3">Asset Management System</h3>
-      <p class="text-gray-400 text-sm sm:text-base mb-4">
-        Custom-built process to track, monitor, maintain, and optimize the lifecycle of organizational assets.
-      </p>
-      <p class="text-sm text-gray-500">
-        <b>Tools:</b> Next.js, Tailwind CSS, RESTful APIs, Supabase (PostgreSQL)
-      </p>
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Asset Management System</h3>
+        <p class="text-gray-400">Platform for tracking, analyzing, and optimizing company assets.</p>
+      </div>
+
+      <!-- clone for seamless loop -->
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Virtual Trial Room</h3>
+        <p class="text-gray-400">AR try-on platform for e-commerce fashion brands.</p>
+      </div>
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Banyan Tree Organics</h3>
+        <p class="text-gray-400">Online marketplace for sustainable products with smooth UX.</p>
+      </div>
+      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+        <h3 class="text-xl font-semibold mb-2 gradient-secondary">Asset Management System</h3>
+        <p class="text-gray-400">Platform for tracking, analyzing, and optimizing company assets.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ================= CTA ================= -->
-<section id="contact" class="px-8 md:px-24 py-24 relative z-10">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur">
-
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="px-8 md:px-24 py-32 relative z-10">
+  <div class="bg-white/5 p-10 rounded-2xl grid md:grid-cols-2 gap-10">
     <div>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-        Bringing your ideas to life.
-      </h2>
-      <p class="text-gray-400 text-sm sm:text-base">
-        Have a project in mind or want to connect? Let’s turn your vision into reality.
-      </p>
+      <h2 class="text-3xl font-bold mb-4 gradient-primary">Let’s build something great.</h2>
+      <p class="text-gray-400">Tell me about your project.</p>
     </div>
-
     <!-- HTML-only Formspree form -->
     <form action="https://formspree.io/f/xojnazrk" method="POST" class="space-y-4" autocomplete="off">
-      <input type="text" name="name" placeholder="Name" required
+      <input type="text" name="Company name" placeholder="Company Name" required
              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off">
 
-      <input type="email" name="email" placeholder="Email" required
+      <input type="email" name="email" placeholder="Company Email" required
              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off">
 
-      <textarea name="message" placeholder="Message" required
+      <textarea name="message" placeholder="Project description" required
                 class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm sm:text-base" autocomplete="off"></textarea>
 
       <button type="submit"
               class="w-full sm:w-auto px-6 py-3 bg-white text-black rounded-lg font-medium hover:opacity-90 transition">
-        Send
+        Send Message
       </button>
     </form>
-
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="px-8 md:px-24 py-10 text-gray-500 text-sm flex flex-col md:flex-row justify-between gap-4 relative z-10">
-  <p>© 2026 Karthik K Shetty • Based in India (Remote)</p>
-  <p>Built with React, Next.js & Tailwind CSS</p>
+<footer class="px-8 md:px-24 py-10 text-gray-500 text-sm flex justify-between relative z-10">
+  <p>© 2025 Karthik K Shetty</p>
+  <p>• Based in India (Remote)</p>
 </footer>
+
+
+<!-- Floating CTA -->
+<a id="floating-cta"
+   href="#contact"
+   class="fixed bottom-6 right-6 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all z-50">
+  Hire Me 🚀
+</a>
+
+
+<!-- ================= JS ================= -->
+<script>
+  // Scroll progress and CTA
+  window.addEventListener("scroll", () => {
+    const p = (window.scrollY / (document.body.scrollHeight - innerHeight)) * 100;
+    document.getElementById("scroll-progress").style.width = p + "%";
+
+    const cta = document.getElementById("floating-cta");
+    cta.classList.toggle("opacity-0", window.scrollY < 700);
+    cta.classList.toggle("pointer-events-none", window.scrollY < 700);
+  });
+
+  // GSAP continuous horizontal scroll
+  const projectsContainer = document.getElementById('projects-container');
+
+  gsap.to(projectsContainer, {
+    xPercent: -50,
+    duration: 20,
+    ease: "linear",
+    repeat: -1
+  });
+</script>
 
 </body>
 </html>

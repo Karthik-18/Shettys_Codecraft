@@ -23,7 +23,6 @@
       color: #f0f0f0;
     }
 
-    /* Scroll progress */
     #scroll-progress {
       height: 3px;
       width: 0%;
@@ -34,7 +33,6 @@
       background: linear-gradient(to right, #FF6B6B, #FFD93D);
     }
 
-    /* Header fixed */
     header {
       position: fixed;
       top: 0;
@@ -45,7 +43,6 @@
       background: rgba(15, 15, 15, 0.7);
     }
 
-    /* Background logo */
     body::before {
       content: "";
       position: fixed;
@@ -56,7 +53,6 @@
       z-index: 0;
     }
 
-    /* Cards */
     .card {
       transition: transform .35s ease, box-shadow .35s ease;
       background: rgba(255,255,255,0.05);
@@ -67,11 +63,9 @@
       box-shadow: 0 30px 80px rgba(255,107,107,0.25);
     }
 
-    /* Hide scrollbar */
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Text gradient */
     .gradient-primary { background: linear-gradient(90deg, #FF6B6B, #FFD93D); -webkit-background-clip: text; color: transparent; }
     .gradient-secondary { background: linear-gradient(90deg, #4ECDC4, #556270); -webkit-background-clip: text; color: transparent; }
   </style>
@@ -173,38 +167,43 @@
   </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
-<section id="work" class="py-32 relative z-10 overflow-hidden">
-  <h2 class="text-3xl font-bold px-8 md:px-24 mb-12 gradient-primary">Selected Work →</h2>
+<!-- ================= PROJECTS  ================= -->
+<section id="work" class="py-20 md:py-32 relative z-10 overflow-hidden">
+  <h2 class="text-3xl font-bold px-6 md:px-24 mb-12 gradient-primary">
+    Selected Work →
+  </h2>
 
-  <div class="relative px-8 md:px-24 overflow-hidden">
-    <div class="flex gap-8 whitespace-nowrap" id="projects-container">
+  <div class="relative px-6 md:px-24 overflow-hidden">
+    <div class="flex gap-8 w-max" id="projects-container">
 
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+      <!-- ORIGINAL SET -->
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Virtual Trial Room</h3>
         <p class="text-gray-400">AR try-on platform for e-commerce fashion brands.</p>
       </div>
 
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Banyan Tree Organics</h3>
         <p class="text-gray-400">Online marketplace for sustainable products with smooth UX.</p>
       </div>
 
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Asset Management System</h3>
         <p class="text-gray-400">Platform for tracking, analyzing, and optimizing company assets.</p>
       </div>
 
-      <!-- clone for seamless loop -->
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+      <!-- DUPLICATE FOR LOOP -->
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Virtual Trial Room</h3>
         <p class="text-gray-400">AR try-on platform for e-commerce fashion brands.</p>
       </div>
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Banyan Tree Organics</h3>
         <p class="text-gray-400">Online marketplace for sustainable products with smooth UX.</p>
       </div>
-      <div class="inline-block min-w-[80%] md:min-w-[45%] card p-10 rounded-xl">
+
+      <div class="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] max-w-[500px] card p-6 md:p-10 rounded-xl">
         <h3 class="text-xl font-semibold mb-2 gradient-secondary">Asset Management System</h3>
         <p class="text-gray-400">Platform for tracking, analyzing, and optimizing company assets.</p>
       </div>
@@ -239,6 +238,13 @@
   </div>
 </section>
 
+<!-- Floating CTA -->
+<a id="floating-cta"
+   href="#contact"
+   class="fixed bottom-[4.5rem] right-6 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all z-50">
+  Hire Me 🚀
+</a>
+
 <!-- ================= FOOTER ================= -->
 <footer class="px-8 md:px-24 py-10 text-gray-500 text-sm flex justify-between relative z-10">
   <p>© 2025 Karthik K Shetty</p>
@@ -246,27 +252,18 @@
 </footer>
 
 
-<!-- Floating CTA -->
-<a id="floating-cta"
-   href="#contact"
-   class="fixed bottom-6 right-6 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all z-50">
-  Hire Me 🚀
-</a>
+<!-- (Rest of your original code remains unchanged including JS) -->
 
-
-<!-- ================= JS ================= -->
 <script>
-  // Scroll progress and CTA
   window.addEventListener("scroll", () => {
     const p = (window.scrollY / (document.body.scrollHeight - innerHeight)) * 100;
     document.getElementById("scroll-progress").style.width = p + "%";
 
     const cta = document.getElementById("floating-cta");
-    cta.classList.toggle("opacity-0", window.scrollY < 700);
-    cta.classList.toggle("pointer-events-none", window.scrollY < 700);
+    cta?.classList.toggle("opacity-0", window.scrollY < 700);
+    cta?.classList.toggle("pointer-events-none", window.scrollY < 700);
   });
 
-  // GSAP continuous horizontal scroll
   const projectsContainer = document.getElementById('projects-container');
 
   gsap.to(projectsContainer, {
